@@ -14,6 +14,8 @@
 		D700336820F130A1003941EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D700336620F130A1003941EC /* LaunchScreen.storyboard */; };
 		D700337020F139E7003941EC /* GroceryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700336F20F139E7003941EC /* GroceryListTableViewController.swift */; };
 		D700337320F205E3003941EC /* OnlineUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700337220F205E3003941EC /* OnlineUsersTableViewController.swift */; };
+		D700337620F2073C003941EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700337520F2073C003941EC /* User.swift */; };
+		D700337820F20749003941EC /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700337720F20749003941EC /* GroceryItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D700336920F130A1003941EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D700336F20F139E7003941EC /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
 		D700337220F205E3003941EC /* OnlineUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineUsersTableViewController.swift; sourceTree = "<group>"; };
+		D700337520F2073C003941EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D700337720F20749003941EC /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		D700335C20F130A1003941EC /* GroceryApp */ = {
 			isa = PBXGroup;
 			children = (
+				D700337420F2072A003941EC /* Model */,
 				D700337120F205B0003941EC /* Controllers */,
 				D700335D20F130A1003941EC /* AppDelegate.swift */,
 				D700336120F130A1003941EC /* Main.storyboard */,
@@ -76,6 +81,15 @@
 				D700337220F205E3003941EC /* OnlineUsersTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D700337420F2072A003941EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D700337520F2073C003941EC /* User.swift */,
+				D700337720F20749003941EC /* GroceryItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +167,8 @@
 				D700336020F130A1003941EC /* LoginViewController.swift in Sources */,
 				D700337320F205E3003941EC /* OnlineUsersTableViewController.swift in Sources */,
 				D700337020F139E7003941EC /* GroceryListTableViewController.swift in Sources */,
+				D700337620F2073C003941EC /* User.swift in Sources */,
+				D700337820F20749003941EC /* GroceryItem.swift in Sources */,
 				D700335E20F130A1003941EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
