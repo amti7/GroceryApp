@@ -10,15 +10,21 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     var userArray: [User] = []
     
     override func viewDidLoad() {
+        roundTheButton(buttonToRound: loginButton)
+        roundTheButton(buttonToRound: signUpButton)
+        
         super.viewDidLoad()
     }
 
     @IBAction func didClickedSignUp(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Creating new user", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Creating New User", message: "", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Enter Email"
@@ -44,6 +50,11 @@ class LoginViewController: UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    func roundTheButton(buttonToRound: UIButton){
+        buttonToRound.layer.cornerRadius = 10
+        buttonToRound.clipsToBounds = true
     }
     
 
