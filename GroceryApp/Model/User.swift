@@ -12,7 +12,7 @@ struct User {
     
     let uuid: Int
     let email: String
-   
+    let password: String 
     
     
 }

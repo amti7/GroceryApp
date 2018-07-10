@@ -12,7 +12,7 @@ import UIKit
 class GroceryTableViewController: UITableViewController {
     
     var items: [GroceryItem] = []
-    var user = User(uuid: 2938479, email: "user@looser.com")
+    var user = User(uuid: 2938479, email: "user@sample.com", password: "awadawa")
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
