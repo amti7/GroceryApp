@@ -16,6 +16,11 @@ class GroceryTableViewController: UITableViewController {
     var items: [GroceryItem] = []
     var user = User(uuid: 2938479, email: "user@sample.com", password: "awadawa")
     
+    override func viewDidLoad() {
+        
+        observeDataFromFirebase()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -51,4 +56,19 @@ class GroceryTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func observeDataFromFirebase(){
+        ref.observe(.value, with: { snapshot in
+            
+            var newItems: [GroceryItem] = []
+            
+            for child in snapshot.children {
+                if let snapshot = child as? DataSnapshot, let groceryItem = GroceryItem(snapshot: snapshot) {
+                    newItems.append(groceryItem)
+                }
+            }
+            
+            self.items = newItems
+            self.tableView.reloadData()
+        })
+    }
 }
