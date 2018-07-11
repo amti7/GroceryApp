@@ -22,6 +22,11 @@ struct GroceryItem {
         self.key = key
     }
     
-    
-    
+    func toAnyObject() -> Any{
+        return [
+            "name": name,
+            "addedByUser": addedByUser,
+            "completed": completed
+        ]
+    }
 }

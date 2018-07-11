@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class GroceryTableViewController: UITableViewController {
     
+    let ref = Database.database().reference(withPath: "grocery-items")
     var items: [GroceryItem] = []
     var user = User(uuid: 2938479, email: "user@sample.com", password: "awadawa")
     
@@ -31,8 +33,13 @@ class GroceryTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Grocery Item", message: "Add Item", preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
-            let textField = alert.textFields![0]
+            guard let textField = alert.textFields?[0], let text = textField.text else { return }
+            
+            
             let groceryItem = GroceryItem(name: textField.text!, addedByUser: self.user.email, completed: false)
+            let groceryItemRef = self.ref.child(text.lowercased())
+            groceryItemRef.setValue(groceryItem.toAnyObject())
+            
             self.items.append(groceryItem)
             self.tableView.reloadData()
         }
