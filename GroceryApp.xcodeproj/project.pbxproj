@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DC9D3022AE8482B4E5A7E14 /* Pods_GroceryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2885B278BD0B9AF57526031 /* Pods_GroceryApp.framework */; };
 		D700335E20F130A1003941EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700335D20F130A1003941EC /* AppDelegate.swift */; };
 		D700336020F130A1003941EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700335F20F130A1003941EC /* LoginViewController.swift */; };
 		D700336320F130A1003941EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D700336120F130A1003941EC /* Main.storyboard */; };
@@ -16,9 +17,11 @@
 		D700337320F205E3003941EC /* OnlineUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700337220F205E3003941EC /* OnlineUsersTableViewController.swift */; };
 		D700337620F2073C003941EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700337520F2073C003941EC /* User.swift */; };
 		D700337820F20749003941EC /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D700337720F20749003941EC /* GroceryItem.swift */; };
+		D700337C20F632F0003941EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D700337B20F632F0003941EC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9FE8E1855E49CE00EAC5E59C /* Pods-GroceryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryApp/Pods-GroceryApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D700335A20F130A1003941EC /* GroceryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D700335D20F130A1003941EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D700335F20F130A1003941EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		D700337220F205E3003941EC /* OnlineUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineUsersTableViewController.swift; sourceTree = "<group>"; };
 		D700337520F2073C003941EC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D700337720F20749003941EC /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		D700337B20F632F0003941EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E6373D8BBA4C82272FDC7E3B /* Pods-GroceryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryApp/Pods-GroceryApp.release.xcconfig"; sourceTree = "<group>"; };
+		F2885B278BD0B9AF57526031 /* Pods_GroceryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC9D3022AE8482B4E5A7E14 /* Pods_GroceryApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F83D793EFD1B6ABA06B321C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FE8E1855E49CE00EAC5E59C /* Pods-GroceryApp.debug.xcconfig */,
+				E6373D8BBA4C82272FDC7E3B /* Pods-GroceryApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3D66500FD60625484A817070 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2885B278BD0B9AF57526031 /* Pods_GroceryApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D700335120F130A1003941EC = {
 			isa = PBXGroup;
 			children = (
 				D700335C20F130A1003941EC /* GroceryApp */,
 				D700335B20F130A1003941EC /* Products */,
+				2F83D793EFD1B6ABA06B321C /* Pods */,
+				3D66500FD60625484A817070 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +95,7 @@
 				D700336420F130A1003941EC /* Assets.xcassets */,
 				D700336620F130A1003941EC /* LaunchScreen.storyboard */,
 				D700336920F130A1003941EC /* Info.plist */,
+				D700337B20F632F0003941EC /* GoogleService-Info.plist */,
 			);
 			path = GroceryApp;
 			sourceTree = "<group>";
@@ -99,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D700336C20F130A1003941EC /* Build configuration list for PBXNativeTarget "GroceryApp" */;
 			buildPhases = (
+				33E14DB8322868C8D1020B25 /* [CP] Check Pods Manifest.lock */,
 				D700335620F130A1003941EC /* Sources */,
 				D700335720F130A1003941EC /* Frameworks */,
 				D700335820F130A1003941EC /* Resources */,
+				A497B01D2E5FE5659840D5F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,12 +181,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				D700336820F130A1003941EC /* LaunchScreen.storyboard in Resources */,
+				D700337C20F632F0003941EC /* GoogleService-Info.plist in Resources */,
 				D700336520F130A1003941EC /* Assets.xcassets in Resources */,
 				D700336320F130A1003941EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33E14DB8322868C8D1020B25 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GroceryApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A497B01D2E5FE5659840D5F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GroceryApp/Pods-GroceryApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroceryApp/Pods-GroceryApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D700335620F130A1003941EC /* Sources */ = {
@@ -304,6 +377,7 @@
 		};
 		D700336D20F130A1003941EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FE8E1855E49CE00EAC5E59C /* Pods-GroceryApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +392,7 @@
 		};
 		D700336E20F130A1003941EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6373D8BBA4C82272FDC7E3B /* Pods-GroceryApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
