@@ -28,10 +28,22 @@ class GroceryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroceryCell", for: indexPath)
         let groceryArray = items[indexPath.row]
-        print("\(groceryArray.name) |  \(groceryArray.addedByUser)")
         cell.textLabel?.text = groceryArray.name
         cell.detailTextLabel?.text = groceryArray.addedByUser
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let groceryItem = items[indexPath.row]
+            groceryItem.ref?.removeValue()
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
     }
     
     @IBAction func addButtonClicked(_ sender: Any) {
