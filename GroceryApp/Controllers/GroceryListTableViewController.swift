@@ -46,6 +46,29 @@ class GroceryTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+//        cell.accessoryType = .checkmark
+        
+        let groceryItem = items[indexPath.row]
+        let toggledCompletition = !groceryItem.completed
+        toggleCellCheckbox(cell, isCompleted: toggledCompletition)
+        groceryItem.ref?.updateChildValues([
+            "completed": toggledCompletition
+            ])
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.accessoryType = .none
+        
+        
+    }
+    
+    
+    
     @IBAction func addButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Grocery Item", message: "Add Item", preferredStyle: .alert)
         
@@ -82,5 +105,18 @@ class GroceryTableViewController: UITableViewController {
             self.items = newItems
             self.tableView.reloadData()
         })
+    }
+    
+    func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool){
+        if !isCompleted {
+            cell.accessoryType = .none
+            cell.textLabel?.textColor = .black
+            cell.detailTextLabel?.textColor = .black
+            
+        } else {
+            cell.accessoryType = .checkmark
+            cell.textLabel?.textColor = .gray
+            cell.detailTextLabel?.textColor = .gray
+        }
     }
 }
