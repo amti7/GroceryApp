@@ -92,20 +92,20 @@ class GroceryTableViewController: UITableViewController {
     }
     
     func observeDataFromFirebase(){
-        ref.observe(.value, with: { snapshot in
-            
+        ref.queryOrdered(byChild: "completed").observe(.value, with: { snapshot in
             var newItems: [GroceryItem] = []
-            
             for child in snapshot.children {
-                if let snapshot = child as? DataSnapshot, let groceryItem = GroceryItem(snapshot: snapshot) {
+                if let snapshot = child as? DataSnapshot,
+                    let groceryItem = GroceryItem(snapshot: snapshot) {
                     newItems.append(groceryItem)
                 }
             }
-            
             self.items = newItems
             self.tableView.reloadData()
         })
     }
+    
+    
     
     func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool){
         if !isCompleted {

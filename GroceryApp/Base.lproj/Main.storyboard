@@ -105,6 +105,8 @@
                     <connections>
                         <outlet property="loginButton" destination="Jqp-Tl-0ST" id="xC0-sQ-Ctk"/>
                         <outlet property="signUpButton" destination="LXV-Ss-9Cj" id="Yil-gW-uig"/>
+                        <outlet property="userLoginTextField" destination="Ppt-HQ-y5P" id="uRH-48-tIw"/>
+                        <outlet property="userPasswordTextField" destination="IrP-nD-VU7" id="DK8-vO-wGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

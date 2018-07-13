@@ -8,4 +8,5 @@ target 'GroceryApp' do
   # Pods for GroceryApp
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 end
