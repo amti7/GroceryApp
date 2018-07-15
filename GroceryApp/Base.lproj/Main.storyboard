@@ -46,7 +46,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DIa-0h-Xvw" kind="show" id="Ry5-Gf-vEH"/>
+                                    <action selector="didClickLogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kNb-4g-vYf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXV-Ss-9Cj">
@@ -61,7 +61,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="didClickedSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ki0-zL-egK"/>
+                                    <action selector="didClickSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VYJ-Kr-Mce"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IrP-nD-VU7">
@@ -107,6 +107,7 @@
                         <outlet property="signUpButton" destination="LXV-Ss-9Cj" id="Yil-gW-uig"/>
                         <outlet property="userLoginTextField" destination="Ppt-HQ-y5P" id="uRH-48-tIw"/>
                         <outlet property="userPasswordTextField" destination="IrP-nD-VU7" id="DK8-vO-wGm"/>
+                        <segue destination="DIa-0h-Xvw" kind="presentation" identifier="LoginToList" id="suV-VA-T2A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -153,57 +154,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Grocery List" id="Rb4-iD-syj">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" style="done" id="9Dg-zm-x7O">
+                            <color key="tintColor" red="0.97557129620000005" green="0.95268933369999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didSignOut:" destination="VIe-dg-XN4" id="7Mx-Qx-KA6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="OdC-sy-p53">
+                            <color key="tintColor" red="0.97557129620000005" green="0.95268933369999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addButtonClicked:" destination="VIe-dg-XN4" id="Ut1-ZY-ivs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="4Zo-iH-CuR" kind="show" id="SJL-ar-lh1"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uH0-7l-U7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1760.8" y="133.5832083958021"/>
-        </scene>
-        <!--Online-->
-        <scene sceneID="7YF-Cm-yNq">
-            <objects>
-                <tableViewController id="4Zo-iH-CuR" customClass="OnlineUserTableViewController" customModule="GroceryApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4zH-ms-gNl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jD9-gj-BSI">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jD9-gj-BSI" id="o1a-gt-jdM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eR-1Z-jyi">
-                                            <rect key="frame" x="16" y="0.0" width="82" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4Zo-iH-CuR" id="t5d-z1-cba"/>
-                            <outlet property="delegate" destination="4Zo-iH-CuR" id="sl7-zg-Svw"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Online" id="33f-8Y-HqU"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k0h-K6-YGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2472.8000000000002" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mk4-AT-3PU">

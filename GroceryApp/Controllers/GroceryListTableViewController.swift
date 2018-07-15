@@ -9,16 +9,24 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class GroceryTableViewController: UITableViewController {
     
     let ref = Database.database().reference(withPath: "grocery-items")
     var items: [GroceryItem] = []
-    var user = User(uuid: 2938479, email: "user@sample.com", password: "awadawa")
+    var user: User!
+    let usersRef = Database.database().reference(withPath: "online")
     
     override func viewDidLoad() {
-        
         observeDataFromFirebase()
+        Auth.auth().addStateDidChangeListener { auth, user in
+            guard let user = user else { return }
+            self.user = User(uid: user.uid, email: user.email!)
+            let currentUserRef = self.usersRef.child(self.user.uid)
+            currentUserRef.setValue(self.user.email)
+            currentUserRef.onDisconnectRemoveValue()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,27 +55,19 @@ class GroceryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-//        cell.accessoryType = .checkmark
-        
         let groceryItem = items[indexPath.row]
         let toggledCompletition = !groceryItem.completed
         toggleCellCheckbox(cell, isCompleted: toggledCompletition)
         groceryItem.ref?.updateChildValues([
             "completed": toggledCompletition
             ])
-        
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         cell.accessoryType = .none
-        
-        
     }
-    
-    
     
     @IBAction func addButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Grocery Item", message: "Add Item", preferredStyle: .alert)
@@ -75,15 +75,12 @@ class GroceryTableViewController: UITableViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let textField = alert.textFields?[0], let text = textField.text else { return }
             
-            
             let groceryItem = GroceryItem(name: textField.text!, addedByUser: self.user.email, completed: false)
             let groceryItemRef = self.ref.child(text.lowercased())
             groceryItemRef.setValue(groceryItem.toAnyObject())
-            
             self.items.append(groceryItem)
             self.tableView.reloadData()
         }
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addTextField()
         alert.addAction(saveAction)
@@ -105,8 +102,6 @@ class GroceryTableViewController: UITableViewController {
         })
     }
     
-    
-    
     func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool){
         if !isCompleted {
             cell.accessoryType = .none
@@ -117,6 +112,27 @@ class GroceryTableViewController: UITableViewController {
             cell.accessoryType = .checkmark
             cell.textLabel?.textColor = .gray
             cell.detailTextLabel?.textColor = .gray
+        }
+    }
+    
+    @IBAction func didSignOut(_ sender: Any) {
+        signOutUser()
+    }
+    
+    func signOutUser(){
+        let user = Auth.auth().currentUser!
+        let onlineRef = Database.database().reference(withPath: "online/\(user.uid)")
+        onlineRef.removeValue() { (error, _) in
+            if let error = error {
+                print("Removing online failed \(error)")
+                return
+            }
+            do {
+                try Auth.auth().signOut()
+                self.dismiss(animated: true, completion: nil)
+            } catch (let error) {
+                print("Auth sign out failed: \(error)")
+            }
         }
     }
 }

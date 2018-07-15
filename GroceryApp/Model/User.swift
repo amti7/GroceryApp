@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import Firebase
 
 struct User {
     
-    let uuid: Int
+    let uid: String
     let email: String
-    let password: String 
     
-    
+    init(uid: String, email:String){
+        self.uid = uid
+        self.email = email
+    }
 }
