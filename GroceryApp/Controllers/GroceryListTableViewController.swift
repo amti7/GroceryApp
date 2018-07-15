@@ -19,6 +19,7 @@ class GroceryTableViewController: UITableViewController {
     let usersRef = Database.database().reference(withPath: "online")
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         observeDataFromFirebase()
         Auth.auth().addStateDidChangeListener { auth, user in
             guard let user = user else { return }
@@ -116,10 +117,6 @@ class GroceryTableViewController: UITableViewController {
     }
     
     @IBAction func didSignOut(_ sender: Any) {
-        signOutUser()
-    }
-    
-    func signOutUser(){
         let user = Auth.auth().currentUser!
         let onlineRef = Database.database().reference(withPath: "online/\(user.uid)")
         onlineRef.removeValue() { (error, _) in
